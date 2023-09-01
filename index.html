@@ -191,7 +191,14 @@ button:hover {
     } else {
         document.getElementById("feedback").textContent = `Sorry, incorrect! The correct answer was ${currentBird.name}.`;
     }
-    
+
+document.getElementById('birdForm').addEventListener('submit', function(event) {
+    event.preventDefault();  // This prevents the default form submission behavior.
+    checkAnswer();
+});
+
+
+           
     // Clear the input field
     document.getElementById("guess").value = "";
 
@@ -224,8 +231,10 @@ button:hover {
     </div>
 
     <div>
+        <form id="birdForm">
         <input type="text" id="guess" placeholder="Your guess here">
         <button id="submitBtn" onclick="checkAnswer()">Submit</button>
+            </form>
     </div>
 
     <p id="feedback"></p>
