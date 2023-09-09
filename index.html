@@ -36,7 +36,7 @@
     </style>
 </head>
 <body>
-    <h1>Etymology Challenges</h1>
+    <h1>Etymology Challenge</h1>
     <div id="question">Question here</div>
     <div class="option" onclick="checkAnswer(0)">Option 1</div>
     <div class="option" onclick="checkAnswer(1)">Option 2</div>
@@ -64,9 +64,19 @@
             // ... add more questions in the same format
         ];
 
-        let currentQuestion = 0;
+        shuffle(questions);
+questions = questions.slice(0, 10); // Pick the first 10 questions after shuffling
+let currentQuestion = 0;
         let score = 0;
 
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+}
+
+        
         function displayQuestion() {
             if(currentQuestion < questions.length) {
                 document.getElementById("question").innerText = questions[currentQuestion].q;
