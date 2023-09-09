@@ -86,6 +86,8 @@
                 document.getElementById("message").innerText = "";
                 displayQuestion();
             }, 1000);
+            document.activeElement.blur();
+
         }
 
         displayQuestion();
