@@ -36,7 +36,7 @@
     </style>
 </head>
 <body>
-    <h1>Something BorrowedWW</h1>
+    <h1>Something BorrowedXX</h1>
     <div id="question">Question here</div>
     <div class="option" onclick="checkAnswer(0)">Option 1</div>
     <div class="option" onclick="checkAnswer(1)">Option 2</div>
@@ -56,11 +56,12 @@
         // Correct answer is "Answer A"
             },
 
-            {
-                q: "Tobacco is derived from a: the ancient Egyptian term 'tobankos' meaning 'smoking reeds'; b: from the native American Taíno word 'tabaco'; c: borrowed from the Viking term 'tabakkr', which referred to their ritual of puffing on dried seaweed; d: from the fictional land of Tobaccoville where Captain Crunch battled the Cigarette Sea Monster.",
-                options: ["A", "B", "C", "D"],
-                a: 1 
-            },
+           {
+    q: "Tobacco is derived from a:<br> the ancient Egyptian term 'tobankos' meaning 'smoking reeds';<br> b: from the native American Taíno word 'tabaco';<br> c: borrowed from the Viking term 'tabakkr', which referred to their ritual of puffing on dried seaweed;<br> d: from the fictional land of Tobaccoville where Captain Crunch battled the Cigarette Sea Monster.",
+    options: ["A", "B", "C", "D"],
+    a: 1 
+}
+
             // ... add more questions in the same format
         ];
 
@@ -79,7 +80,7 @@ function shuffle(array) {
         
         function displayQuestion() {
             if(currentQuestion < questions.length) {
-                document.getElementById("question").innerText = questions[currentQuestion].q;
+                document.getElementById("question").innerHTML = questions[currentQuestion].q;
                 for(let i = 0; i < 4; i++) {
                     document.getElementsByClassName("option")[i].innerText = questions[currentQuestion].options[i];
                 }
