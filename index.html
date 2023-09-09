@@ -1,235 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    
-    <style>
-    
-      body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
-    padding-top: 50px;
-}
-
-.container {
-    max-width: 600px;
-    background-color: #ffffff;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 18px;
-}
-
-input[type="text"] {
-    font-size: 16px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 70%;
-}
-
-button {
-    background-color: #007BFF;
-    color: #ffffff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-    </style>
-
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <title>Guess the British Bird</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EtymoQuest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        #question {
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .option {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .option:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>EtymoQuest</h1>
+    <div id="question">Question here</div>
+    <div class="option" onclick="checkAnswer(0)">Option 1</div>
+    <div class="option" onclick="checkAnswer(1)">Option 2</div>
+    <div class="option" onclick="checkAnswer(2)">Option 3</div>
+    <div class="option" onclick="checkAnswer(3)">Option 4</div>
+    <div id="message"></div>
     <script>
-        const birds = [
-            { name: "Sparrow", Tagline: "Urban hopper with modest attire", Colour: "Brown, Grey", Distribution: "Common" },
- { name: "Robin", Tagline: "Red-breasted herald of winter's end", Colour: "Red, Brown", Distribution: "Common" },
- { name: "Blackbird", Tagline: "Noir songster in gardens", Colour: "Black, Yellow", Distribution: "Common" },
- { name: "Blue Tit", Tagline: "Azure-capped acrobat on feeders", Colour: "Blue, Yellow", Distribution: "Common" },
- { name: "Great Tit", Tagline: "Black-capped, yellow-bellied singer", Colour: "Yellow, Black", Distribution: "Common" },
- { name: "Coal Tit", Tagline: "Sooty-headed frequenter of conifers", Colour: "Black, White", Distribution: "Common" },
- { name: "Long-tailed Tit", Tagline: "Extended feathered pinball in flocks", Colour: "Pink, White", Distribution: "Common" },
- { name: "Greenfinch", Tagline: "Olive-winged seed lover", Colour: "Green, Yellow", Distribution: "Common" },
- { name: "Chaffinch", Tagline: "Checker-throated ground hopper", Colour: "Pinkish-brown, Blue-Grey", Distribution: "Common" },
- { name: "Goldfinch", Tagline: "Gilded charmer with thistle diet", Colour: "Red, Gold", Distribution: "Common" },
- { name: "Bullfinch", Tagline: "Robust, blushing hedgerow diner", Colour: "Red, Grey", Distribution: "Common" },
- { name: "Collared Dove", Tagline: "Neck-banded peace symbol", Colour: "Grey, Pinkish", Distribution: "Common" },
- { name: "Pigeon", Tagline: "Mark's target practice", Colour: "Blue-Grey, Green", Distribution: "Common" },
- { name: "Song Thrush", Tagline: "Patterned mimic with melodic lines", Colour: "Brown, Spotted", Distribution: "Common" },
- { name: "Starling", Tagline: "Glossy murmurer at dusk", Colour: "Purple-green iridescence, Yellow", Distribution: "Common" },
- { name: "Wren", Tagline: "Tiny trill from dense undergrowth", Colour: "Brown, Cream", Distribution: "Common" },
- { name: "Dunnock", Tagline: "Shy brown singer in the hedgerow", Colour: "Grey, Brown", Distribution: "Common" },
- { name: "Magpie", Tagline: "Mischievous hoarder of sparkles", Colour: "Black, White", Distribution: "Common" },
- { name: "Jackdaw", Tagline: "Silver-eyed chatterbox of towers", Colour: "Grey, Black", Distribution: "Common" },
- { name: "Carrion Crow", Tagline: "Dark scavenger of the open land", Colour: "Black, Dark Grey", Distribution: "Common" },
- { name: "Skylark", Tagline: "Heavenly serenader above fields", Colour: "Brown, White", Distribution: "Common" },
- { name: "Meadow Pipit", Tagline: "Grassy wanderer with subtle stripes", Colour: "Brown, Buff", Distribution: "Common" },
- { name: "Pheasant", Tagline: "Colorful gamebird with countryside strut", Colour: "Golden-brown, Green", Distribution: "Common" },
- { name: "Red-legged Partridge", Tagline: "Rustic fowl with scarlet stilts", Colour: "Brown, Red", Distribution: "Common" },
- { name: "Yellowhammer", Tagline: "Yellow singer on fence posts", Colour: "Yellow, Brown", Distribution: "Common" },
- { name: "Lapwing", Tagline: "Crested aerial acrobat with green sheen", Colour: "Green, Black", Distribution: "Common" },
- { name: "Kestrel", Tagline: "Hovering hunter of the open fields", Colour: "Rust-brown, Grey", Distribution: "Common" },
- { name: "Barn Owl", Tagline: "Ghostly nocturnal mouse seeker", Colour: "Golden-brown, White", Distribution: "Common" },
- { name: "Buzzard", Tagline: "Rabbit hunter with mottled chest", Colour: "Brown, White", Distribution: "Common" },
- { name: "Rook", Tagline: "Bare-faced gatherer in treetop clans", Colour: "Black, Grey sheen", Distribution: "Common" },
- { name: "Mistle Thrush", Tagline: "Bold speckled guardian of berries", Colour: "Grey-brown, White spots", Distribution: "Common" },
- { name: "Red Kite", Tagline: "Fork-tailed scavenger of the skies", Colour: "Rust-red, Black", Distribution: "Common" },
- { name: "Goldcrest", Tagline: "Crowned minstrel of the conifers", Colour: "Green, Yellow", Distribution: "Common" },
- { name: "Linnet", Tagline: "Crimson-breasted singer of gorse", Colour: "Brown, Red", Distribution: "Common" },
- { name: "Corn Bunting", Tagline: "Rural crooner with striped back", Colour: "Brown, Dark streaks", Distribution: "Common" },
- { name: "Reed Bunting", Tagline: "Black-headed marshland flutist", Colour: "Black, White", Distribution: "Common" },
- { name: "Cuckoo", Tagline: "Evasive timer of Spring", Colour: "Grey, White", Distribution: "Common" },
- { name: "Grey Partridge", Tagline: "Humble ground dweller with orange face", Colour: "Brown, Grey", Distribution: "Common" },
- { name: "Ruff", Tagline: "Wader with ornate breeding attire", Colour: "Brown, White", Distribution: "Common" },
- { name: "Blackcap", Tagline: "Sylvan warbler with shaded dome", Colour: "Grey, Black cap", Distribution: "Common" },
- { name: "Mallard", Tagline: "Green-headed frequenter of ponds", Colour: "Green, Brown", Distribution: "Common" },
- { name: "Mute Swan", Tagline: "Silent, long-necked water royalty", Colour: "White, Orange", Distribution: "Common" },
- { name: "Coot", Tagline: "Black diver with white mask", Colour: "Black, White", Distribution: "Common" },
- { name: "Moorhen", Tagline: "Red-billed dweller of pond edges", Colour: "Black, Red", Distribution: "Common" },
- { name: "Great Crested Grebe", Tagline: "Elegant diver with ruffled neckline", Colour: "Brown, White", Distribution: "Common" },
- { name: "Little Egret", Tagline: "Diminutive white wader with black legs", Colour: "White, Black", Distribution: "Common" },
- { name: "Grey Heron", Tagline: "Statuesque fisherman", Colour: "Grey, White", Distribution: "Common" },
- { name: "Kingfisher", Tagline: "River's jewel with azure wings", Colour: "Bright blue, Orange", Distribution: "Common" },
- { name: "Common Sandpiper", Tagline: "Riverside dancer with teetering steps", Colour: "Brown, White", Distribution: "Common" },
- { name: "Oystercatcher", Tagline: "Orange-billed shorelines' percussionist", Colour: "Black, White", Distribution: "Common" },
- { name: "Tufted Duck", Tagline: "Ebony swimmer with a crowning feature", Colour: "Black, White", Distribution: "Common" },
- { name: "Canada Goose", Tagline: "North American-sounding cool grazer", Colour: "Brown, White", Distribution: "Common" },
- { name: "Teal", Tagline: "Diminutive dabbling waterfowl with a whistle", Colour: "Green, Brown", Distribution: "Common" },
- { name: "Shoveler", Tagline: "Broad-billed dabbler in marshes", Colour: "Green, White", Distribution: "Common" },
- { name: "Gadwall", Tagline: "Understated drake with refined grace", Colour: "Grey, Brown", Distribution: "Common" },
- { name: "Snipe", Tagline: "Camouflaged wader with a probing beak", Colour: "Brown, Striped", Distribution: "Common" },
- { name: "Common Tern", Tagline: "Summer's silver-winged fisher on coasts", Colour: "Grey, White", Distribution: "Common" },
- { name: "Black-headed Gull", Tagline: "Winter hooded caller of shores", Colour: "White, Black", Distribution: "Common" },
- { name: "Reed Warbler", Tagline: "Elusive singer of the swaying reeds", Colour: "Brown, Buff", Distribution: "Common" },
- { name: "Tree Pipit", Tagline: "Canopy dweller with a skyward song", Colour: "Brown, White", Distribution: "Uncommon" },
- { name: "Lesser Spotted Woodpecker", Tagline: "Diminutive tree drummer with bars", Colour: "Black, White", Distribution: "Uncommon" },
- { name: "Hawfinch", Tagline: "Bulky beak cruncher of seeds", Colour: "Brown, Red", Distribution: "Uncommon" },
- { name: "Firecrest", Tagline: "Flaming crowned gem of the woods", Colour: "Green, Yellow", Distribution: "Uncommon" },
- { name: "Wood Warbler", Tagline: "Leafy singer with lemon underbelly", Colour: "Green, White", Distribution: "Uncommon" },
- { name: "Nightingale", Tagline: "Nocturnal balladeer with unassuming looks", Colour: "Brown, Orange", Distribution: "Uncommon" },
- { name: "Redstart", Tagline: "Tail-flicking herald of autumn migrations", Colour: "Red, Grey", Distribution: "Uncommon" },
- { name: "Pied Flycatcher", Tagline: "Contrasting catcher on woodland perches", Colour: "Black, White", Distribution: "Uncommon" },
- { name: "Goshawk", Tagline: "Stealthy woodland raptor with fierce gaze", Colour: "Grey, White", Distribution: "Uncommon" },
- { name: "Crossbill", Tagline: "Conifer specialist with twisted tools", Colour: "Red, Brown", Distribution: "Uncommon" },
- { name: "Water Rail", Tagline: "Secretive marsh wanderer with speared-pig scream", Colour: "Purple-Grey, Chestnut-brown", Distribution: "Uncommon" },
- { name: "Marsh Harrier", Tagline: "Reedbed hunter extraordinaire", Colour: "Brown, Cream", Distribution: "Uncommon" },
- { name: "Bearded Tit", Tagline: "Mustached denizen of the wetlands", Colour: "Pink, Grey", Distribution: "Uncommon" },
- { name: "Bittern", Tagline: "Booming camouflaged reed-dweller", Colour: "Brown, Buff", Distribution: "Uncommon" },
- { name: "Sedge Warbler", Tagline: "Scruffy-throated vocalist of the wet meadows", Colour: "Brown, Striped", Distribution: "Uncommon" },
- { name: "Cetti's Warbler", Tagline: "Loud singer from dense river thickets", Colour: "Brown, Grey", Distribution: "Uncommon" },
- { name: "Garganey", Tagline: "Rare pond visitor with crescent eye-markings", Colour: "Brown, White", Distribution: "Uncommon" },
- { name: "Common Whitethroat", Tagline: "Scrubland songster with a pale collar", Colour: "Brown, White", Distribution: "Uncommon" },
- { name: "Black-tailed Godwit", Tagline: "Leggy wader with two-toned beak", Colour: "Brown, White", Distribution: "Uncommon" },
- { name: "Greenshank", Tagline: "Elegant wader on olive legs", Colour: "Grey, White", Distribution: "Uncommon" },
- { name: "Stone-curlew", Tagline: "Night-eyed dweller of dry lands", Colour: "Brown, Yellow", Distribution: "Uncommon" },
- { name: "Osprey", Tagline: "Freshwater raptor with mighty dive", Colour: "Brown, White", Distribution: "Uncommon" },
- { name: "Chough", Tagline: "Cliffside crow with crimson footwear", Colour: "Black, Red", Distribution: "Uncommon" },
- { name: "Twite", Tagline: "Upland finch with pink rump highlight", Colour: "Brown, Pink", Distribution: "Uncommon" },
- { name: "Golden Plover", Tagline: "Moorland dancer with shimmering attire", Colour: "Gold, Black", Distribution: "Uncommon" },
- { name: "Peregrine Falcon", Tagline: "Sky's speedster", Colour: "Grey, White", Distribution: "Uncommon" },
- { name: "Dotterel", Tagline: "Mountain plover with trusting nature", Colour: "Brown, White", Distribution: "Uncommon" },
- { name: "Ring Ouzel", Tagline: "Mountain blackbird with white necklace", Colour: "Black, White", Distribution: "Uncommon" },
- { name: "Snow Bunting", Tagline: "Winter's feathered fluff from the tundra", Colour: "White, Black", Distribution: "Uncommon" },
- { name: "Short-eared Owl", Tagline: "Stunning twilight hunter of open lands", Colour: "Brown, Cream", Distribution: "Rare" },
- { name: "Hoopoe", Tagline: "Crowned traveller with striped wings", Colour: "Pink, Black", Distribution: "Rare" },
- { name: "Bee-eater", Tagline: "Rainbow hunter of summer insects", Colour: "Green, Yellow", Distribution: "Rare" },
- { name: "Golden Oriole", Tagline: "Sunny songster hidden in foliage", Colour: "Yellow, Black", Distribution: "Rare" },
- { name: "White-tailed Sea Eagle", Tagline: "Island giant with oceanic gaze", Colour: "White, Brown", Distribution: "Rare" },
- { name: "Red-backed Shrike", Tagline: "Thorny perch for this butcher", Colour: "Grey, Red", Distribution: "Rare" },
- { name: "Wryneck", Tagline: "Ant-eating contortionist of the woodlands", Colour: "Brown, Black", Distribution: "Rare" },
- { name: "Black-winged Stilt", Tagline: "Elegant, lanky wader on tall stilts", Colour: "Black, White", Distribution: "Rare" },
- { name: "Red-rumped Swallow", Tagline: "Crimson-tailed artist of mud nests", Colour: "Red, Blue", Distribution: "Rare" },
- { name: "Spoonbill", Tagline: "Long-legged fisher with its own ladle", Colour: "White, Yellow", Distribution: "Rare" },
- { name: "Honey Buzzard", Tagline: "Large lover of wasps and bees", Colour: "Brown, White", Distribution: "Rare" },
+        // Your questions array goes here.
+        // Each question has a 'q' property for the question, 'options' for the answer options and 'a' for the correct answer index
+        let questions = [
+            {
+                q: "Sample Question 1",
+                options: ["Answer A", "Answer B", "Answer C", "Answer D"],
+                a: 0 // Correct answer is "Answer A"
+            },
+            // ... add more questions in the same format
         ];
 
-        let currentBird = null;
-        let questionCounter = 0;
+        let currentQuestion = 0;
         let score = 0;
 
-        function randomBird() {
-            return birds[Math.floor(Math.random() * birds.length)];
+        function displayQuestion() {
+            if(currentQuestion < questions.length) {
+                document.getElementById("question").innerText = questions[currentQuestion].q;
+                for(let i = 0; i < 4; i++) {
+                    document.getElementsByClassName("option")[i].innerText = questions[currentQuestion].options[i];
+                }
+            } else {
+                document.getElementById("question").innerText = "You finished! Your score is: " + score;
+                for(let i = 0; i < 4; i++) {
+                    document.getElementsByClassName("option")[i].style.display = "none";
+                }
+            }
         }
 
-        function displayBird() {
-    currentBird = randomBird();
-    document.getElementById("Tagline").textContent = currentBird.Tagline;
-    document.getElementById("Colour").textContent = currentBird.Colour;
-    document.getElementById("Distribution").textContent = currentBird.Distribution;
-    document.getElementById("currentScore").textContent = `Score: ${score} / 10`; // This line updates the score on the display.
-}
-
-       function checkAnswer() {
-    let guess = document.getElementById("guess").value.trim();
-    questionCounter++;
-
-    if (guess.toLowerCase() === currentBird.name.toLowerCase()) {
-        score++;
-        document.getElementById("feedback").textContent = "Correct! Well done.";
-    } else {
-        document.getElementById("feedback").textContent = `Sorry, incorrect! The correct answer was ${currentBird.name}.`;
-    }
-           
-    // Clear the input field
-    document.getElementById("guess").value = "";
-
-    if (questionCounter >= 10) {
-        document.getElementById("feedback").textContent += ` Game Over! Your score is ${score} out of 10. Refresh the page to play again.`;
-        document.getElementById("guess").disabled = true;
-        document.getElementById("submitBtn").disabled = true;
-    } else {
-        displayBird(); 
-    }
-}
-
-
-
-        window.onload = function() {
-            displayBird();
+        function checkAnswer(answer) {
+            if(answer === questions[currentQuestion].a) {
+                score++;
+                document.getElementById("message").innerText = "Correct, well done!";
+            } else {
+                document.getElementById("message").innerText = "Sorry, incorrect!";
+            }
+            currentQuestion++;
+            setTimeout(function() {
+                document.getElementById("message").innerText = "";
+                displayQuestion();
+            }, 1000);
         }
+
+        displayQuestion();
     </script>
-</head>
-
-<body>
-<div class="container">
-
-    <h2>Guess the British Bird</h2>
-
-    <div>
-        <p>Tagline: <span id="Tagline"></span></p>
-        <p>Colour: <span id="Colour"></span></p>
-        <p>Distribution: <span id="Distribution"></span></p>
-    </div>
-
-    <div>
-        <input type="text" id="guess" placeholder="Your guess here">
-        <button id="submitBtn" onclick="checkAnswer()">Submit</button>
-    </div>
-
-    <p id="feedback"></p>
-<p id="currentScore">Score: 0 / 10</p>
-</div>
 </body>
-
 </html>
