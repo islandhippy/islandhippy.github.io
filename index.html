@@ -26,10 +26,17 @@
         .option:hover {
             background-color: #ddd;
         }
+
+        @media (hover: none) {
+    .option:hover {
+        background-color: #fff;  /* Resets the hover effect for touch devices */
+    }
+}
+
     </style>
 </head>
 <body>
-    <h1>Etymology Challenge</h1>
+    <h1>Etymology Challenges</h1>
     <div id="question">Question here</div>
     <div class="option" onclick="checkAnswer(0)">Option 1</div>
     <div class="option" onclick="checkAnswer(1)">Option 2</div>
