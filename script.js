@@ -137,17 +137,7 @@ window.addEventListener("keyup", (e) => {
   }
 });
 
-//Comparison Logic
-const validateWord = async () => {
-  if (isTouchDevice()) {
-    submitButton.classList.add("hide");
-  }
-  let failed = false;
-  //Get all input boxes of current row
-  let currentInputs = inputRow[tryCount].querySelectorAll(".input-box");
-
- 
-  };
+v
 
   //If not then stop here
   if (failed) {
