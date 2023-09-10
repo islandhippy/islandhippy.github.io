@@ -147,7 +147,7 @@ const validateWord = async () => {
   let currentInputs = inputRow[tryCount].querySelectorAll(".input-box");
 
  
-  });
+  };
 
   //If not then stop here
   if (failed) {
