@@ -145,15 +145,8 @@ const validateWord = async () => {
   let failed = false;
   //Get all input boxes of current row
   let currentInputs = inputRow[tryCount].querySelectorAll(".input-box");
-  //Check if it is a valid english word
-  await fetch(
-    `https://api.dictionaryapi.dev/api/v2/entries/en/${finalWord}`
-  ).then((response) => {
-    if (response.status == "404") {
-      console.clear();
-      alert("Please Enter Valid Word");
-      failed = true;
-    }
+
+ 
   });
 
   //If not then stop here
