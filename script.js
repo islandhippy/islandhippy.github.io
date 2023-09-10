@@ -131,12 +131,10 @@ const checker = async (e) => {
 //When user presses enter/backspace and all the inputs are filled
 window.addEventListener("keyup", (e) => {
   if (inputCount > 4) {
-    if (isTouchDevice()) {
-      submitButton.classList.remove("hide");
-    }
-    if (e.key == "Enter") {
-      validateWord();
-    } else if (e.key == "Backspace") {
+  submitButton.classList.remove("hide");
+  if (e.key == "Enter") {
+    validateWord();
+  } else if (e.key == "Backspace") {
       inputRow[tryCount].lastChild.value = "";
       finalWord = finalWord.substring(0, finalWord.length - 1);
       updateDivConfig(inputRow[tryCount].lastChild, false);
