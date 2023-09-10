@@ -217,3 +217,4 @@ const validateWord = async () => {
 };
 
 window.onload = startGame();
+submitButton.addEventListener('click', validateWord);
