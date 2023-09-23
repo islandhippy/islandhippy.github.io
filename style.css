@@ -59,4 +59,15 @@ h1 {
     text-align: center; /* This will center-align the text horizontally */
 }
 
+@media (max-width: 480px) {
+    .letter-box {
+        font-size: 1.5rem;
+        height: 2rem;
+        width: 2rem;
+    }
 
+    .keyboard-button {
+        font-size: 0.8rem;
+        padding: 0.3rem;
+    }
+}
