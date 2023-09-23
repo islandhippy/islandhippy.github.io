@@ -66,10 +66,12 @@ function checkGuess () {
         return
     }
 
-    if (!WORDS.includes(guessString)) {
+   /* if (!WORDS.includes(guessString)) {
         toastr.error("Word not in list!")
         return
-    }
+}
+*/
+
 
     
     for (let i = 0; i < 5; i++) {
