@@ -133,7 +133,7 @@ collapsibleBtn.addEventListener('click', function() {
     if (collapsibleContent.style.maxHeight) {
         collapsibleContent.style.maxHeight = null;
         collapsibleContent.style.opacity = '0';
-        collapsibleBtn.innerText = "Show Instructions";
+        collapsibleBtn.innerText = "Show Hints";
     } else {
         collapsibleContent.style.maxHeight = collapsibleContent.scrollHeight + "px";
         collapsibleContent.style.opacity = '1';
