@@ -7,12 +7,6 @@ let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)];
 
 console.log(rightGuessString);
 
-toastr.options = {
-    positionClass: "toast-bottom-center",
-    closeButton: true,
-    timeOut: 5000  // adjust duration as needed; this is in milliseconds
-};
-
 function initBoard() {
     let board = document.getElementById("game-board");
 
