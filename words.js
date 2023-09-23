@@ -67,6 +67,8 @@ export const WORDS = [
 'single',
 'skins',
 'slate',
+'sniff',
+'smell',
 'smoky',
 'soave',
 'sober',
