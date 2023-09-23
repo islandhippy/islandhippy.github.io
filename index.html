@@ -13,30 +13,34 @@
   />
 </head>
 <body>
-    <h1> Boozle  </h1>
+    <h1>Boozle</h1>
 
-<div class="instructions-container">
-    <p>A wine-related Wordle clone.</p>
-    <p>The game that will drive you to drink.</p>
-    <p>Think grape varietes, wine areas, wine paraphernalia, styles, taste descriptions, etc.</p>
-    <p>Starter word ideas: loire, yeast, anjou, crush, grape, rhone, sweet, rioja, plonk.</p>
-</div>
+    <!-- Top instructions -->
+    <div class="top-instructions">
+        <p>A wine-related Wordle clone.</p>
+        <p>The game that will drive you to drink.</p>
+    </div>
     
     <div id="game-board">
-
+        <!-- Game board content -->
     </div>
 
     <div id="input-cont">
-    <input type="text" id="word-input" maxlength="5" placeholder="Type your guess..." />
-    <button id="submit-guess">Submit Guess</button>
-</div>
+        <input type="text" id="word-input" maxlength="5" placeholder="Type your guess..." />
+        <button id="submit-guess">Submit Guess</button>
+    </div>
 
+    <!-- Bottom instructions -->
+    <div class="bottom-instructions">
+        <p>Think grape varietes, wine areas, wine paraphernalia, styles, taste descriptions, etc.</p>
+        <p>Starter word ideas: loire, yeast, anjou, crush, grape, rhone, sweet, rioja, plonk.</p>
+    </div>
 
-<script
-src="https://code.jquery.com/jquery-3.6.0.min.js"
-integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="script.js" type="module"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="script.js" type="module"></script>
 </body>
 </html>
