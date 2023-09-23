@@ -77,6 +77,34 @@ h1 {
   text-align: center; /* This will center-align the text horizontally */
 }
 
+.collapsible-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.collapsible-btn {
+    cursor: pointer;
+    background-color: #f1f1f1;
+    padding: 0.5rem 1rem;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1rem;
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.collapsible-content p {
+    margin: 0.5rem 0;
+}
+
+
 @media (max-width: 480px) {
   .letter-box {
     font-size: 1.5rem;
