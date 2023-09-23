@@ -53,3 +53,7 @@ h1 {
   cursor: pointer;
   text-transform: uppercase;
 }
+
+.instructions-container {
+    text-align: center; /* This will center-align the text horizontally */
+}
