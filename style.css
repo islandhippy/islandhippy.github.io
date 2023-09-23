@@ -3,6 +3,10 @@ h1 {
   font-size: 2rem; /* Adjust this value as needed */
 }
 
+h1, .top-instructions p {
+    line-height: 1.2; /* Default is usually around 1.5 */
+}
+
 h1 {
     margin-bottom: 0.5rem; /* Adjust this value as needed */
 }
