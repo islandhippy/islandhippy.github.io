@@ -29,11 +29,11 @@ function shadeKeyBoard(letter, color) {
     for (const elem of document.getElementsByClassName("keyboard-button")) {
         if (elem.textContent === letter) {
             let oldColor = elem.style.backgroundColor
-            if (oldColor === '#90EE90') {
+            if (oldColor === 'green') {
                 return
             } 
 
-            if (oldColor === 'yellow' && color !== '#90EE90') {
+            if (oldColor === 'yellow' && color !== 'green') {
                 return
             }
 
@@ -89,7 +89,7 @@ function checkGuess () {
             // letter is in the right position 
             if (currentGuess[i] === rightGuess[i]) {
                 // shade green 
-                letterColor = '#90EE90'
+                letterColor = 'green'
             } else {
                 // shade box yellow
                 letterColor = 'yellow'
