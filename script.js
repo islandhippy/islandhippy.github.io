@@ -137,7 +137,7 @@ collapsibleBtn.addEventListener('click', function() {
     } else {
         collapsibleContent.style.maxHeight = collapsibleContent.scrollHeight + "px";
         collapsibleContent.style.opacity = '1';
-        collapsibleBtn.innerText = "Hide Instructions";
+        collapsibleBtn.innerText = "Hide Hints";
     }
 });
 
