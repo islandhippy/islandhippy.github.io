@@ -31,7 +31,6 @@ h1 {
   flex-wrap: wrap;
 }
 
-/* Add styles for your word input and submit button */
 #word-input {
   font-size: 1.5rem;
   padding: 0.5rem;
@@ -56,7 +55,9 @@ h1 {
   margin-right: auto;
 }
 
-.instructions-container {
+/* Adjust styles for the instructions */
+.top-instructions,
+.bottom-instructions {
   text-align: center; /* This will center-align the text horizontally */
 }
 
