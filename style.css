@@ -67,3 +67,7 @@ h1 {
         padding: 0.3rem;
     }
 }
+
+.instructions-container {
+    text-align: center; /* This will center-align the text horizontally */
+}
