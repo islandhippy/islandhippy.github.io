@@ -48,6 +48,7 @@ export const WORDS = [
 'petit',
 'picks',
 'pinot',
+'plant',
 'plonk',
 'plush',
 'porto',
