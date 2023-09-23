@@ -3,6 +3,16 @@ h1 {
   font-size: 2rem; /* Adjust this value as needed */
 }
 
+h1 {
+    margin-bottom: 0.5rem; /* Adjust this value as needed */
+}
+
+.top-instructions p {
+    margin-top: 0.5rem;    /* Adjust for the top margin */
+    margin-bottom: 0.5rem; /* Adjust for the bottom margin */
+}
+
+
 
 #game-board {
   display: flex;
