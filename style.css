@@ -28,7 +28,6 @@ h1 {
 
 .letter-row {
   display: flex;
- flex-wrap: wrap;
 }
 
 #keyboard-cont {
@@ -53,21 +52,4 @@ h1 {
   margin: 0 2px;
   cursor: pointer;
   text-transform: uppercase;
-}
-
-@media (max-width: 480px) {
-    .letter-box {
-        font-size: 1.5rem;
-        height: 2rem;
-        width: 2rem;
-    }
-
-    .keyboard-button {
-        font-size: 0.8rem;
-        padding: 0.3rem;
-    }
-}
-
-.instructions-container {
-    text-align: center; /* This will center-align the text horizontally */
 }
