@@ -44,7 +44,6 @@ export const WORDS = [
       'score',
       'aroma',
       'short',
-       'silex',
       'silky',
       'single',
       'slate',
