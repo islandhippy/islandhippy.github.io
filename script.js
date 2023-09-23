@@ -108,7 +108,7 @@ function checkGuess () {
 
     if (guessString === rightGuessString) {
         toastr.success("You guessed right! Cheers!")
-        toastr.info(`Definition: "${wordDefinitions[rightGuessString]}"`)
+        toastr.info(`Definition: "${WORD[rightGuessString]}"`)
         guessesRemaining = 0
         return
     } else {
@@ -119,7 +119,7 @@ function checkGuess () {
         if (guessesRemaining === 0) {
             toastr.error("You've run out of guesses! Have another glass!")
             toastr.info(`The right word was: "${rightGuessString}"`)
-            toastr.info(`Definition: "${wordDefinitions[rightGuessString]}"`)
+            toastr.info(`Definition: "${WORD[rightGuessString]}"`)
         }
     }
 }
