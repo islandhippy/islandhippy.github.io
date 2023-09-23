@@ -91,7 +91,7 @@ export const WORDS = [
       'douro',
       'gamay',
        'white',
-      'cotes',
+      'fizzy',
       'grand',
       'petit',
     ]
