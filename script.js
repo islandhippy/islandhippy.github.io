@@ -126,6 +126,22 @@ const animateCSS = (element, animation, prefix = 'animate__') => {
     node.addEventListener('animationend', handleAnimationEnd, {once: true});
 };
 
+const collapsibleBtn = document.querySelector('.collapsible-btn');
+const collapsibleContent = document.querySelector('.collapsible-content');
+
+collapsibleBtn.addEventListener('click', function() {
+    if (collapsibleContent.style.maxHeight) {
+        collapsibleContent.style.maxHeight = null;
+        collapsibleContent.style.opacity = '0';
+        collapsibleBtn.innerText = "Show Instructions";
+    } else {
+        collapsibleContent.style.maxHeight = collapsibleContent.scrollHeight + "px";
+        collapsibleContent.style.opacity = '1';
+        collapsibleBtn.innerText = "Hide Instructions";
+    }
+});
+
+
 document.getElementById("word-input").addEventListener("keyup", (e) => {
     if (guessesRemaining === 0) {
         return;
