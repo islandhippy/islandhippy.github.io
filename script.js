@@ -165,4 +165,9 @@ document.getElementById("submit-guess").addEventListener("click", () => {
     document.getElementById("word-input").value = "";  // Clear the input after submitting
 });
 
+document.getElementById('play-again-btn').addEventListener('click', function() {
+    location.reload();
+});
+
+
 initBoard();
