@@ -71,6 +71,21 @@ h1 {
   margin-right: auto;
 }
 
+#play-again-btn {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 /* Adjust styles for the instructions */
 .top-instructions,
 .bottom-instructions {
