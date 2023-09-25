@@ -66,7 +66,6 @@ h1 {
   padding: 0.5rem 1rem;
   margin-top: 1rem;
   cursor: pointer;
-  colour: white;
   text-transform: uppercase;
   display: block;
   margin-left: auto;
@@ -135,7 +134,8 @@ h1 {
   }
 
   #submit-guess {
-    font-size: 0.8rem;
+    font-size: 2rem;
+  colour: white;
     padding: 0.3rem 0.6rem;
   }
 }
