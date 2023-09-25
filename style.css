@@ -61,7 +61,8 @@ h1 {
 }
 
 #submit-guess {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  background-color: #4CAF50;
   padding: 0.5rem 1rem;
   margin-top: 1rem;
   cursor: pointer;
@@ -72,7 +73,7 @@ h1 {
 }
 
 #play-again-btn {
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0.5rem 1rem;
     margin-top: 2rem;
     cursor: pointer;
